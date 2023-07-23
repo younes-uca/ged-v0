@@ -16,9 +16,9 @@ import ma.sir.ged.ws.dto.DocumentPartageUtilisateurDto;
 public class DocumentPartageUtilisateurConverter extends AbstractConverter<DocumentPartageUtilisateur, DocumentPartageUtilisateurDto, DocumentPartageUtilisateurHistory> {
 
     @Autowired
-    private DocumentConverter documentConverter ;
-    @Autowired
     private UtilisateurConverter utilisateurConverter ;
+    @Autowired
+    private DocumentConverter documentConverter ;
     @Autowired
     private AcessShareConverter acessShareConverter ;
     private boolean document;
@@ -89,17 +89,17 @@ public class DocumentPartageUtilisateurConverter extends AbstractConverter<Docum
     }
 
 
-    public DocumentConverter getDocumentConverter(){
-        return this.documentConverter;
-    }
-    public void setDocumentConverter(DocumentConverter documentConverter ){
-        this.documentConverter = documentConverter;
-    }
     public UtilisateurConverter getUtilisateurConverter(){
         return this.utilisateurConverter;
     }
     public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
         this.utilisateurConverter = utilisateurConverter;
+    }
+    public DocumentConverter getDocumentConverter(){
+        return this.documentConverter;
+    }
+    public void setDocumentConverter(DocumentConverter documentConverter ){
+        this.documentConverter = documentConverter;
     }
     public AcessShareConverter getAcessShareConverter(){
         return this.acessShareConverter;

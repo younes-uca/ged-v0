@@ -17,9 +17,9 @@ import ma.sir.ged.ws.dto.DocumentManagementGroupeDto;
 public class DocumentManagementGroupeConverter extends AbstractConverter<DocumentManagementGroupe, DocumentManagementGroupeDto, DocumentManagementGroupeHistory> {
 
     @Autowired
-    private AcessManagementConverter acessManagementConverter ;
-    @Autowired
     private DocumentConverter documentConverter ;
+    @Autowired
+    private AcessManagementConverter acessManagementConverter ;
     @Autowired
     private GroupeConverter groupeConverter ;
     private boolean document;
@@ -92,17 +92,17 @@ public class DocumentManagementGroupeConverter extends AbstractConverter<Documen
     }
 
 
-    public AcessManagementConverter getAcessManagementConverter(){
-        return this.acessManagementConverter;
-    }
-    public void setAcessManagementConverter(AcessManagementConverter acessManagementConverter ){
-        this.acessManagementConverter = acessManagementConverter;
-    }
     public DocumentConverter getDocumentConverter(){
         return this.documentConverter;
     }
     public void setDocumentConverter(DocumentConverter documentConverter ){
         this.documentConverter = documentConverter;
+    }
+    public AcessManagementConverter getAcessManagementConverter(){
+        return this.acessManagementConverter;
+    }
+    public void setAcessManagementConverter(AcessManagementConverter acessManagementConverter ){
+        this.acessManagementConverter = acessManagementConverter;
     }
     public GroupeConverter getGroupeConverter(){
         return this.groupeConverter;

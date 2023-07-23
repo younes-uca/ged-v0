@@ -26,15 +26,15 @@ import ma.sir.ged.bean.core.DocumentManagementUtilisateur;
 import ma.sir.ged.bean.core.DocumentAcessShare;
 import ma.sir.ged.bean.core.DocumentTag;
 
-import ma.sir.ged.service.facade.admin.DocumentPartageGroupeAdminService ;
-import ma.sir.ged.service.facade.admin.DocumentManagementGroupeAdminService ;
-import ma.sir.ged.service.facade.admin.DocumentAcessShareAdminService ;
 import ma.sir.ged.service.facade.admin.UtilisateurAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentPartageGroupeAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentManagementUtilisateurAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentAcessShareAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentPartageUtilisateurAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentManagementGroupeAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentTagAdminService ;
 import ma.sir.ged.service.facade.admin.DocumentTypeAdminService ;
 import ma.sir.ged.service.facade.admin.EntiteAdministrativeAdminService ;
-import ma.sir.ged.service.facade.admin.DocumentPartageUtilisateurAdminService ;
-import ma.sir.ged.service.facade.admin.DocumentTagAdminService ;
-import ma.sir.ged.service.facade.admin.DocumentManagementUtilisateurAdminService ;
 
 
 
@@ -169,23 +169,23 @@ DocumentHistoryDao> implements DocumentAdminService {
     }
 
     @Autowired
+    private UtilisateurAdminService utilisateurService ;
+    @Autowired
     private DocumentPartageGroupeAdminService documentPartageGroupeService ;
     @Autowired
-    private DocumentManagementGroupeAdminService documentManagementGroupeService ;
+    private DocumentManagementUtilisateurAdminService documentManagementUtilisateurService ;
     @Autowired
     private DocumentAcessShareAdminService documentAcessShareService ;
     @Autowired
-    private UtilisateurAdminService utilisateurService ;
+    private DocumentPartageUtilisateurAdminService documentPartageUtilisateurService ;
+    @Autowired
+    private DocumentManagementGroupeAdminService documentManagementGroupeService ;
+    @Autowired
+    private DocumentTagAdminService documentTagService ;
     @Autowired
     private DocumentTypeAdminService documentTypeService ;
     @Autowired
     private EntiteAdministrativeAdminService entiteAdministrativeService ;
-    @Autowired
-    private DocumentPartageUtilisateurAdminService documentPartageUtilisateurService ;
-    @Autowired
-    private DocumentTagAdminService documentTagService ;
-    @Autowired
-    private DocumentManagementUtilisateurAdminService documentManagementUtilisateurService ;
 
     public DocumentAdminServiceImpl(DocumentDao dao, DocumentHistoryDao historyDao) {
         super(dao, historyDao);

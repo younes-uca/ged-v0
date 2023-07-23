@@ -18,29 +18,29 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDto, 
     @Autowired
     private DocumentPartageGroupeConverter documentPartageGroupeConverter ;
     @Autowired
-    private DocumentManagementGroupeConverter documentManagementGroupeConverter ;
-    @Autowired
     private DocumentPartageUtilisateurConverter documentPartageUtilisateurConverter ;
     @Autowired
+    private DocumentManagementGroupeConverter documentManagementGroupeConverter ;
+    @Autowired
     private DocumentTagConverter documentTagConverter ;
-    @Autowired
-    private DocumentManagementUtilisateurConverter documentManagementUtilisateurConverter ;
-    @Autowired
-    private AcessManagementConverter acessManagementConverter ;
-    @Autowired
-    private TagConverter tagConverter ;
-    @Autowired
-    private DocumentAcessShareConverter documentAcessShareConverter ;
-    @Autowired
-    private UtilisateurConverter utilisateurConverter ;
     @Autowired
     private DocumentTypeConverter documentTypeConverter ;
     @Autowired
     private EntiteAdministrativeConverter entiteAdministrativeConverter ;
     @Autowired
-    private GroupeConverter groupeConverter ;
+    private UtilisateurConverter utilisateurConverter ;
+    @Autowired
+    private DocumentManagementUtilisateurConverter documentManagementUtilisateurConverter ;
     @Autowired
     private AcessShareConverter acessShareConverter ;
+    @Autowired
+    private DocumentAcessShareConverter documentAcessShareConverter ;
+    @Autowired
+    private AcessManagementConverter acessManagementConverter ;
+    @Autowired
+    private TagConverter tagConverter ;
+    @Autowired
+    private GroupeConverter groupeConverter ;
     private boolean documentType;
     private boolean utilisateur;
     private boolean entiteAdministrative;
@@ -208,53 +208,23 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDto, 
     public void setDocumentPartageGroupeConverter(DocumentPartageGroupeConverter documentPartageGroupeConverter ){
         this.documentPartageGroupeConverter = documentPartageGroupeConverter;
     }
-    public DocumentManagementGroupeConverter getDocumentManagementGroupeConverter(){
-        return this.documentManagementGroupeConverter;
-    }
-    public void setDocumentManagementGroupeConverter(DocumentManagementGroupeConverter documentManagementGroupeConverter ){
-        this.documentManagementGroupeConverter = documentManagementGroupeConverter;
-    }
     public DocumentPartageUtilisateurConverter getDocumentPartageUtilisateurConverter(){
         return this.documentPartageUtilisateurConverter;
     }
     public void setDocumentPartageUtilisateurConverter(DocumentPartageUtilisateurConverter documentPartageUtilisateurConverter ){
         this.documentPartageUtilisateurConverter = documentPartageUtilisateurConverter;
     }
+    public DocumentManagementGroupeConverter getDocumentManagementGroupeConverter(){
+        return this.documentManagementGroupeConverter;
+    }
+    public void setDocumentManagementGroupeConverter(DocumentManagementGroupeConverter documentManagementGroupeConverter ){
+        this.documentManagementGroupeConverter = documentManagementGroupeConverter;
+    }
     public DocumentTagConverter getDocumentTagConverter(){
         return this.documentTagConverter;
     }
     public void setDocumentTagConverter(DocumentTagConverter documentTagConverter ){
         this.documentTagConverter = documentTagConverter;
-    }
-    public DocumentManagementUtilisateurConverter getDocumentManagementUtilisateurConverter(){
-        return this.documentManagementUtilisateurConverter;
-    }
-    public void setDocumentManagementUtilisateurConverter(DocumentManagementUtilisateurConverter documentManagementUtilisateurConverter ){
-        this.documentManagementUtilisateurConverter = documentManagementUtilisateurConverter;
-    }
-    public AcessManagementConverter getAcessManagementConverter(){
-        return this.acessManagementConverter;
-    }
-    public void setAcessManagementConverter(AcessManagementConverter acessManagementConverter ){
-        this.acessManagementConverter = acessManagementConverter;
-    }
-    public TagConverter getTagConverter(){
-        return this.tagConverter;
-    }
-    public void setTagConverter(TagConverter tagConverter ){
-        this.tagConverter = tagConverter;
-    }
-    public DocumentAcessShareConverter getDocumentAcessShareConverter(){
-        return this.documentAcessShareConverter;
-    }
-    public void setDocumentAcessShareConverter(DocumentAcessShareConverter documentAcessShareConverter ){
-        this.documentAcessShareConverter = documentAcessShareConverter;
-    }
-    public UtilisateurConverter getUtilisateurConverter(){
-        return this.utilisateurConverter;
-    }
-    public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
-        this.utilisateurConverter = utilisateurConverter;
     }
     public DocumentTypeConverter getDocumentTypeConverter(){
         return this.documentTypeConverter;
@@ -268,17 +238,47 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDto, 
     public void setEntiteAdministrativeConverter(EntiteAdministrativeConverter entiteAdministrativeConverter ){
         this.entiteAdministrativeConverter = entiteAdministrativeConverter;
     }
-    public GroupeConverter getGroupeConverter(){
-        return this.groupeConverter;
+    public UtilisateurConverter getUtilisateurConverter(){
+        return this.utilisateurConverter;
     }
-    public void setGroupeConverter(GroupeConverter groupeConverter ){
-        this.groupeConverter = groupeConverter;
+    public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
+        this.utilisateurConverter = utilisateurConverter;
+    }
+    public DocumentManagementUtilisateurConverter getDocumentManagementUtilisateurConverter(){
+        return this.documentManagementUtilisateurConverter;
+    }
+    public void setDocumentManagementUtilisateurConverter(DocumentManagementUtilisateurConverter documentManagementUtilisateurConverter ){
+        this.documentManagementUtilisateurConverter = documentManagementUtilisateurConverter;
     }
     public AcessShareConverter getAcessShareConverter(){
         return this.acessShareConverter;
     }
     public void setAcessShareConverter(AcessShareConverter acessShareConverter ){
         this.acessShareConverter = acessShareConverter;
+    }
+    public DocumentAcessShareConverter getDocumentAcessShareConverter(){
+        return this.documentAcessShareConverter;
+    }
+    public void setDocumentAcessShareConverter(DocumentAcessShareConverter documentAcessShareConverter ){
+        this.documentAcessShareConverter = documentAcessShareConverter;
+    }
+    public AcessManagementConverter getAcessManagementConverter(){
+        return this.acessManagementConverter;
+    }
+    public void setAcessManagementConverter(AcessManagementConverter acessManagementConverter ){
+        this.acessManagementConverter = acessManagementConverter;
+    }
+    public TagConverter getTagConverter(){
+        return this.tagConverter;
+    }
+    public void setTagConverter(TagConverter tagConverter ){
+        this.tagConverter = tagConverter;
+    }
+    public GroupeConverter getGroupeConverter(){
+        return this.groupeConverter;
+    }
+    public void setGroupeConverter(GroupeConverter groupeConverter ){
+        this.groupeConverter = groupeConverter;
     }
     public boolean  isDocumentType(){
         return this.documentType;

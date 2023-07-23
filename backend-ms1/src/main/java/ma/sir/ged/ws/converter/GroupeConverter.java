@@ -16,9 +16,9 @@ import ma.sir.ged.ws.dto.GroupeDto;
 public class GroupeConverter extends AbstractConverter<Groupe, GroupeDto, GroupeHistory> {
 
     @Autowired
-    private GroupeUtilisateurConverter groupeUtilisateurConverter ;
-    @Autowired
     private UtilisateurConverter utilisateurConverter ;
+    @Autowired
+    private GroupeUtilisateurConverter groupeUtilisateurConverter ;
     private boolean utilisateur;
     private boolean groupeUtilisateurs;
 
@@ -87,17 +87,17 @@ public class GroupeConverter extends AbstractConverter<Groupe, GroupeDto, Groupe
     }
 
 
-    public GroupeUtilisateurConverter getGroupeUtilisateurConverter(){
-        return this.groupeUtilisateurConverter;
-    }
-    public void setGroupeUtilisateurConverter(GroupeUtilisateurConverter groupeUtilisateurConverter ){
-        this.groupeUtilisateurConverter = groupeUtilisateurConverter;
-    }
     public UtilisateurConverter getUtilisateurConverter(){
         return this.utilisateurConverter;
     }
     public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
         this.utilisateurConverter = utilisateurConverter;
+    }
+    public GroupeUtilisateurConverter getGroupeUtilisateurConverter(){
+        return this.groupeUtilisateurConverter;
+    }
+    public void setGroupeUtilisateurConverter(GroupeUtilisateurConverter groupeUtilisateurConverter ){
+        this.groupeUtilisateurConverter = groupeUtilisateurConverter;
     }
     public boolean  isUtilisateur(){
         return this.utilisateur;

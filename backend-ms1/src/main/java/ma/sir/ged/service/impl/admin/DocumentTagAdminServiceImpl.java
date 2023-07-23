@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import ma.sir.ged.service.facade.admin.TagAdminService ;
 import ma.sir.ged.service.facade.admin.DocumentAdminService ;
+import ma.sir.ged.service.facade.admin.TagAdminService ;
 
 
 
@@ -52,9 +52,9 @@ DocumentTagHistoryDao> implements DocumentTagAdminService {
     }
 
     @Autowired
-    private TagAdminService tagService ;
-    @Autowired
     private DocumentAdminService documentService ;
+    @Autowired
+    private TagAdminService tagService ;
 
     public DocumentTagAdminServiceImpl(DocumentTagDao dao, DocumentTagHistoryDao historyDao) {
         super(dao, historyDao);

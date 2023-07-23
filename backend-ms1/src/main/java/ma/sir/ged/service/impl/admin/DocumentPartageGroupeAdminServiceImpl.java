@@ -19,8 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import ma.sir.ged.service.facade.admin.DocumentAdminService ;
-import ma.sir.ged.service.facade.admin.GroupeAdminService ;
 import ma.sir.ged.service.facade.admin.AcessShareAdminService ;
+import ma.sir.ged.service.facade.admin.GroupeAdminService ;
 
 
 
@@ -61,9 +61,9 @@ DocumentPartageGroupeHistoryDao> implements DocumentPartageGroupeAdminService {
     @Autowired
     private DocumentAdminService documentService ;
     @Autowired
-    private GroupeAdminService groupeService ;
-    @Autowired
     private AcessShareAdminService acessShareService ;
+    @Autowired
+    private GroupeAdminService groupeService ;
 
     public DocumentPartageGroupeAdminServiceImpl(DocumentPartageGroupeDao dao, DocumentPartageGroupeHistoryDao historyDao) {
         super(dao, historyDao);

@@ -16,11 +16,11 @@ import ma.sir.ged.ws.dto.DocumentManagementUtilisateurDto;
 public class DocumentManagementUtilisateurConverter extends AbstractConverter<DocumentManagementUtilisateur, DocumentManagementUtilisateurDto, DocumentManagementUtilisateurHistory> {
 
     @Autowired
-    private AcessManagementConverter acessManagementConverter ;
+    private UtilisateurConverter utilisateurConverter ;
     @Autowired
     private DocumentConverter documentConverter ;
     @Autowired
-    private UtilisateurConverter utilisateurConverter ;
+    private AcessManagementConverter acessManagementConverter ;
     private boolean document;
     private boolean utilisateur;
     private boolean acessManagement;
@@ -89,11 +89,11 @@ public class DocumentManagementUtilisateurConverter extends AbstractConverter<Do
     }
 
 
-    public AcessManagementConverter getAcessManagementConverter(){
-        return this.acessManagementConverter;
+    public UtilisateurConverter getUtilisateurConverter(){
+        return this.utilisateurConverter;
     }
-    public void setAcessManagementConverter(AcessManagementConverter acessManagementConverter ){
-        this.acessManagementConverter = acessManagementConverter;
+    public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
+        this.utilisateurConverter = utilisateurConverter;
     }
     public DocumentConverter getDocumentConverter(){
         return this.documentConverter;
@@ -101,11 +101,11 @@ public class DocumentManagementUtilisateurConverter extends AbstractConverter<Do
     public void setDocumentConverter(DocumentConverter documentConverter ){
         this.documentConverter = documentConverter;
     }
-    public UtilisateurConverter getUtilisateurConverter(){
-        return this.utilisateurConverter;
+    public AcessManagementConverter getAcessManagementConverter(){
+        return this.acessManagementConverter;
     }
-    public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
-        this.utilisateurConverter = utilisateurConverter;
+    public void setAcessManagementConverter(AcessManagementConverter acessManagementConverter ){
+        this.acessManagementConverter = acessManagementConverter;
     }
     public boolean  isDocument(){
         return this.document;

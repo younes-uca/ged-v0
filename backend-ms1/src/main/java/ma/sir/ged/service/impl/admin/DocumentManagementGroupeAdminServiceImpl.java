@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import ma.sir.ged.service.facade.admin.AcessManagementAdminService ;
 import ma.sir.ged.service.facade.admin.DocumentAdminService ;
+import ma.sir.ged.service.facade.admin.AcessManagementAdminService ;
 import ma.sir.ged.service.facade.admin.GroupeAdminService ;
 
 
@@ -59,9 +59,9 @@ DocumentManagementGroupeHistoryDao> implements DocumentManagementGroupeAdminServ
     }
 
     @Autowired
-    private AcessManagementAdminService acessManagementService ;
-    @Autowired
     private DocumentAdminService documentService ;
+    @Autowired
+    private AcessManagementAdminService acessManagementService ;
     @Autowired
     private GroupeAdminService groupeService ;
 

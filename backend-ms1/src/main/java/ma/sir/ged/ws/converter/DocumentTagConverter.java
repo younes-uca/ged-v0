@@ -16,9 +16,9 @@ import ma.sir.ged.ws.dto.DocumentTagDto;
 public class DocumentTagConverter extends AbstractConverter<DocumentTag, DocumentTagDto, DocumentTagHistory> {
 
     @Autowired
-    private TagConverter tagConverter ;
-    @Autowired
     private DocumentConverter documentConverter ;
+    @Autowired
+    private TagConverter tagConverter ;
     private boolean document;
     private boolean tag;
 
@@ -75,17 +75,17 @@ public class DocumentTagConverter extends AbstractConverter<DocumentTag, Documen
     }
 
 
-    public TagConverter getTagConverter(){
-        return this.tagConverter;
-    }
-    public void setTagConverter(TagConverter tagConverter ){
-        this.tagConverter = tagConverter;
-    }
     public DocumentConverter getDocumentConverter(){
         return this.documentConverter;
     }
     public void setDocumentConverter(DocumentConverter documentConverter ){
         this.documentConverter = documentConverter;
+    }
+    public TagConverter getTagConverter(){
+        return this.tagConverter;
+    }
+    public void setTagConverter(TagConverter tagConverter ){
+        this.tagConverter = tagConverter;
     }
     public boolean  isDocument(){
         return this.document;

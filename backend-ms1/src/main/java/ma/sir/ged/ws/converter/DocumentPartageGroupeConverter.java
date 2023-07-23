@@ -19,9 +19,9 @@ public class DocumentPartageGroupeConverter extends AbstractConverter<DocumentPa
     @Autowired
     private DocumentConverter documentConverter ;
     @Autowired
-    private GroupeConverter groupeConverter ;
-    @Autowired
     private AcessShareConverter acessShareConverter ;
+    @Autowired
+    private GroupeConverter groupeConverter ;
     private boolean document;
     private boolean groupe;
     private boolean acessShare;
@@ -98,17 +98,17 @@ public class DocumentPartageGroupeConverter extends AbstractConverter<DocumentPa
     public void setDocumentConverter(DocumentConverter documentConverter ){
         this.documentConverter = documentConverter;
     }
-    public GroupeConverter getGroupeConverter(){
-        return this.groupeConverter;
-    }
-    public void setGroupeConverter(GroupeConverter groupeConverter ){
-        this.groupeConverter = groupeConverter;
-    }
     public AcessShareConverter getAcessShareConverter(){
         return this.acessShareConverter;
     }
     public void setAcessShareConverter(AcessShareConverter acessShareConverter ){
         this.acessShareConverter = acessShareConverter;
+    }
+    public GroupeConverter getGroupeConverter(){
+        return this.groupeConverter;
+    }
+    public void setGroupeConverter(GroupeConverter groupeConverter ){
+        this.groupeConverter = groupeConverter;
     }
     public boolean  isDocument(){
         return this.document;

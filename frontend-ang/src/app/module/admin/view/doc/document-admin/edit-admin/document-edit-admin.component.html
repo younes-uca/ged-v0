@@ -1,0 +1,409 @@
+        <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'documentTabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'documentTabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'documentReference' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'documentReference' | translate}}" id="1" [(ngModel)]="item.reference"
+                                                    [ngClass]="{'ng-invalid ng-dirty' : !validDocumentReference}"  />
+                                            <small class='p-error' *ngIf='!validDocumentReference'>Reference est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'documentUploadDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'documentUploadDate' | translate}}"  [(ngModel)]="item.uploadDate"
+                                                    dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'documentDateLastUpdate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="{{'documentDateLastUpdate' | translate}}"  [(ngModel)]="item.dateLastUpdate"
+                                                    dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'documentContent' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'documentContent' | translate}}" id="4" [(ngModel)]="item.content"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'documentSize' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'documentSize' | translate}}" [(ngModel)]="item.size"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-5">
+                                        <label for="6">{{'documentDocumentType' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="documentTypes" [(ngModel)]="item.documentType" id="6" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="libelle" placeholder="{{'documentDocumentType' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                        <div class="col-1">
+                                            <label></label>
+                                            <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateDocumentType('DocumentType')" class="p-button-success one-colonne-btn-success-align"></button>
+                                        </div>
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'documentDescription' | translate}}</label>
+                                            <textarea id="7" pInputTextarea rows="5" cols="30" placeholder="{{'documentDescription' | translate}}"  [(ngModel)]="item.description"
+                                                     ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="8">{{'documentUtilisateur' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="utilisateurs" [(ngModel)]="item.utilisateur" id="8" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="name" placeholder="{{'documentUtilisateur' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                        <div class="field align-inputswitch col-12  md:col-6">
+                                            <div  class="label-inputswitch">
+                                                <label for="9">{{'documentArchive' | translate}}</label>
+                                            </div>
+                                            <div class="input-switch">
+                                                <p-inputSwitch id="9"  [(ngModel)]="item.archive"
+                                                         >
+                                                </p-inputSwitch>
+                                                
+                                            </div>
+                                        </div>
+
+
+                                        <div class="field align-inputswitch col-12  md:col-6">
+                                            <div  class="label-inputswitch">
+                                                <label for="10">{{'documentVersionne' | translate}}</label>
+                                            </div>
+                                            <div class="input-switch">
+                                                <p-inputSwitch id="10"  [(ngModel)]="item.versionne"
+                                                         >
+                                                </p-inputSwitch>
+                                                
+                                            </div>
+                                        </div>
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="11">{{'documentEntiteAdministrative' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="entiteAdministratives" [(ngModel)]="item.entiteAdministrative" id="11" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="libelle" placeholder="{{'documentEntiteAdministrative' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                    <div class="field col-12  md:col-6">
+                                        <label>Acess share</label>
+                                        <p-multiSelect [options]="documentAcessShares" [(ngModel)]="item.documentAcessShares" itemSize="30" [virtualScroll]="true" defaultLabel="Select un acessShare" optionLabel="acessShare.libelle"  display="chip"></p-multiSelect>
+                                    </div>
+                                    <div class="field col-12  md:col-6">
+                                        <label>Tag</label>
+                                        <p-multiSelect [options]="documentTags" [(ngModel)]="item.documentTags" itemSize="30" [virtualScroll]="true" defaultLabel="Select un tag" optionLabel="tag.libelle"  display="chip"></p-multiSelect>
+                                    </div>
+                        </div>
+                    </p-tabPanel>
+                            <p-tabPanel header="acessShare">
+                                <div class="grid">
+                                    <div class="col">
+                                        <div class="card">
+                                            <p-table [value]="documentAcessShares" [(selection)]="item.documentAcessShares" dataKey="acessShare.libelle" [scrollable]="true" scrollHeight="200px">
+                                                <ng-template pTemplate="header">
+                                                    <tr>
+                                                        <th>AcessShare</th>
+                                                    </tr>
+                                                </ng-template>
+                                                <ng-template pTemplate="body" let-p>
+                                                    <tr>
+                                                        <td><p-tableCheckbox [value]="p" ></p-tableCheckbox></td>
+                                                        <td>{{p.acessShare?.libelle}}</td>
+                                                    </tr>
+                                                </ng-template>
+                                            </p-table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p-tabPanel>
+                            <p-tabPanel header="tag">
+                                <div class="grid">
+                                    <div class="col">
+                                        <div class="card">
+                                            <p-table [value]="documentTags" [(selection)]="item.documentTags" dataKey="tag.libelle" [scrollable]="true" scrollHeight="200px">
+                                                <ng-template pTemplate="header">
+                                                    <tr>
+                                                        <th>Tag</th>
+                                                    </tr>
+                                                </ng-template>
+                                                <ng-template pTemplate="body" let-p>
+                                                    <tr>
+                                                        <td><p-tableCheckbox [value]="p" ></p-tableCheckbox></td>
+                                                        <td>{{p.tag?.libelle}}</td>
+                                                    </tr>
+                                                </ng-template>
+                                            </p-table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p-tabPanel>
+
+                            <p-tabPanel header="{{'documentDocumentPartageGroupes' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                        <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Groupe</label>
+                                                                <p-dropdown appendTo="body" [options]="groupes" [(ngModel)]="documentPartageGroupesElement.groupe"
+                                                                        id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Groupe"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Date share</label>
+                                                                <p-calendar  appendTo="body" id="3" placeholder="Date share"  [showTime]="true" [showSeconds]="false"
+                                                                        [(ngModel)]="documentPartageGroupesElement.dateShare"  [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Acess share</label>
+                                                                <p-dropdown appendTo="body" [options]="acessShares" [(ngModel)]="documentPartageGroupesElement.acessShare"
+                                                                        id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Acess share"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addDocumentPartageGroupes()"></button>
+                                                </div>
+                                        </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.documentPartageGroupes?.length > 0 ? '(' + item.documentPartageGroupes?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.documentPartageGroupes" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Groupe</th>
+                                                                        <th>Date share</th>
+                                                                        <th>Acess share</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.groupe?.libelle}}</td>
+                                                                        <td>{{p.dateShare | date: dateFormatColumn}}</td>
+                                                                    <td>{{p.acessShare?.libelle}}</td>
+                                                            <td>
+                                                                <button (click)="deleteDocumentPartageGroupes(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editDocumentPartageGroupes(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+                            <p-tabPanel header="{{'documentDocumentPartageUtilisateurs' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                        <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Utilisateur</label>
+                                                                <p-dropdown appendTo="body" [options]="utilisateurs" [(ngModel)]="documentPartageUtilisateursElement.utilisateur"
+                                                                        id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="name" placeholder="Utilisateur"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Date share</label>
+                                                                <p-calendar  appendTo="body" id="3" placeholder="Date share"  [showTime]="true" [showSeconds]="false"
+                                                                        [(ngModel)]="documentPartageUtilisateursElement.dateShare"  [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Acess share</label>
+                                                                <p-dropdown appendTo="body" [options]="acessShares" [(ngModel)]="documentPartageUtilisateursElement.acessShare"
+                                                                        id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Acess share"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addDocumentPartageUtilisateurs()"></button>
+                                                </div>
+                                        </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.documentPartageUtilisateurs?.length > 0 ? '(' + item.documentPartageUtilisateurs?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.documentPartageUtilisateurs" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Utilisateur</th>
+                                                                        <th>Date share</th>
+                                                                        <th>Acess share</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.utilisateur?.name}}</td>
+                                                                        <td>{{p.dateShare | date: dateFormatColumn}}</td>
+                                                                    <td>{{p.acessShare?.libelle}}</td>
+                                                            <td>
+                                                                <button (click)="deleteDocumentPartageUtilisateurs(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editDocumentPartageUtilisateurs(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+                            <p-tabPanel header="{{'documentDocumentManagementGroupes' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                        <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Groupe</label>
+                                                                <p-dropdown appendTo="body" [options]="groupes" [(ngModel)]="documentManagementGroupesElement.groupe"
+                                                                        id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Groupe"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Date management</label>
+                                                                <p-calendar  appendTo="body" id="3" placeholder="Date management"  [showTime]="true" [showSeconds]="false"
+                                                                        [(ngModel)]="documentManagementGroupesElement.dateManagement"  [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Acess management</label>
+                                                                <p-dropdown appendTo="body" [options]="acessManagements" [(ngModel)]="documentManagementGroupesElement.acessManagement"
+                                                                        id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Acess management"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addDocumentManagementGroupes()"></button>
+                                                </div>
+                                        </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.documentManagementGroupes?.length > 0 ? '(' + item.documentManagementGroupes?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.documentManagementGroupes" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Groupe</th>
+                                                                        <th>Date management</th>
+                                                                        <th>Acess management</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.groupe?.libelle}}</td>
+                                                                        <td>{{p.dateManagement | date: dateFormatColumn}}</td>
+                                                                    <td>{{p.acessManagement?.libelle}}</td>
+                                                            <td>
+                                                                <button (click)="deleteDocumentManagementGroupes(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editDocumentManagementGroupes(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+                            <p-tabPanel header="{{'documentDocumentManagementUtilisateurs' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                        <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Utilisateur</label>
+                                                                <p-dropdown appendTo="body" [options]="utilisateurs" [(ngModel)]="documentManagementUtilisateursElement.utilisateur"
+                                                                        id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="name" placeholder="Utilisateur"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Date management</label>
+                                                                <p-calendar  appendTo="body" id="3" placeholder="Date management"  [showTime]="true" [showSeconds]="false"
+                                                                        [(ngModel)]="documentManagementUtilisateursElement.dateManagement"  [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Acess management</label>
+                                                                <p-dropdown appendTo="body" [options]="acessManagements" [(ngModel)]="documentManagementUtilisateursElement.acessManagement"
+                                                                        id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Acess management"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addDocumentManagementUtilisateurs()"></button>
+                                                </div>
+                                        </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.documentManagementUtilisateurs?.length > 0 ? '(' + item.documentManagementUtilisateurs?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.documentManagementUtilisateurs" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Utilisateur</th>
+                                                                        <th>Date management</th>
+                                                                        <th>Acess management</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.utilisateur?.name}}</td>
+                                                                        <td>{{p.dateManagement | date: dateFormatColumn}}</td>
+                                                                    <td>{{p.acessManagement?.libelle}}</td>
+                                                            <td>
+                                                                <button (click)="deleteDocumentManagementUtilisateurs(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editDocumentManagementUtilisateurs(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+                </p-tabView>
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-footer">
+                        <div>
+                            <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+                        </div>
+                    <div>
+                        <button pButton pRipple label="Valider" icon="pi pi-check" style="margin:10px" (click)="edit()"></button>
+                    </div>
+                </div>
+            </ng-template>
+
+                    <app-document-type-create-admin></app-document-type-create-admin>
+
+                            <app-tag-create-admin></app-tag-create-admin>
+
+    </p-dialog>

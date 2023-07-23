@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import ma.sir.ged.service.facade.admin.AcessManagementAdminService ;
-import ma.sir.ged.service.facade.admin.DocumentAdminService ;
 import ma.sir.ged.service.facade.admin.UtilisateurAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentAdminService ;
+import ma.sir.ged.service.facade.admin.AcessManagementAdminService ;
 
 
 
@@ -59,11 +59,11 @@ DocumentManagementUtilisateurHistoryDao> implements DocumentManagementUtilisateu
     }
 
     @Autowired
-    private AcessManagementAdminService acessManagementService ;
+    private UtilisateurAdminService utilisateurService ;
     @Autowired
     private DocumentAdminService documentService ;
     @Autowired
-    private UtilisateurAdminService utilisateurService ;
+    private AcessManagementAdminService acessManagementService ;
 
     public DocumentManagementUtilisateurAdminServiceImpl(DocumentManagementUtilisateurDao dao, DocumentManagementUtilisateurHistoryDao historyDao) {
         super(dao, historyDao);

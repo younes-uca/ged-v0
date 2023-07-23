@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import ma.sir.ged.service.facade.admin.DocumentAdminService ;
 import ma.sir.ged.service.facade.admin.UtilisateurAdminService ;
+import ma.sir.ged.service.facade.admin.DocumentAdminService ;
 import ma.sir.ged.service.facade.admin.AcessShareAdminService ;
 
 
@@ -59,9 +59,9 @@ DocumentPartageUtilisateurHistoryDao> implements DocumentPartageUtilisateurAdmin
     }
 
     @Autowired
-    private DocumentAdminService documentService ;
-    @Autowired
     private UtilisateurAdminService utilisateurService ;
+    @Autowired
+    private DocumentAdminService documentService ;
     @Autowired
     private AcessShareAdminService acessShareService ;
 

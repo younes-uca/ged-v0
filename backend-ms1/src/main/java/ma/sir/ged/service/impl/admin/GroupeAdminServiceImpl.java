@@ -21,8 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ma.sir.ged.bean.core.GroupeUtilisateur;
 
-import ma.sir.ged.service.facade.admin.GroupeUtilisateurAdminService ;
 import ma.sir.ged.service.facade.admin.UtilisateurAdminService ;
+import ma.sir.ged.service.facade.admin.GroupeUtilisateurAdminService ;
 
 
 
@@ -85,9 +85,9 @@ GroupeHistoryDao> implements GroupeAdminService {
     }
 
     @Autowired
-    private GroupeUtilisateurAdminService groupeUtilisateurService ;
-    @Autowired
     private UtilisateurAdminService utilisateurService ;
+    @Autowired
+    private GroupeUtilisateurAdminService groupeUtilisateurService ;
 
     public GroupeAdminServiceImpl(GroupeDao dao, GroupeHistoryDao historyDao) {
         super(dao, historyDao);
