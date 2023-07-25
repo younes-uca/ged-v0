@@ -7,7 +7,7 @@ import ma.sir.ged.zynerator.util.NumberUtil;
 import ma.sir.ged.zynerator.util.StringUtil;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.*;
+import jakarta.persistence.criteria.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

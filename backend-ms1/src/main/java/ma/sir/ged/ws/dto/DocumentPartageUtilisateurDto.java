@@ -5,8 +5,8 @@ import ma.sir.ged.zynerator.dto.AuditBaseDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 

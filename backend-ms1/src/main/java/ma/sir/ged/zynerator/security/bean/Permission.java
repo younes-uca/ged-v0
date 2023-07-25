@@ -1,6 +1,6 @@
 package ma.sir.ged.zynerator.security.bean;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

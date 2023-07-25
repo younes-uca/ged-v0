@@ -31,6 +31,8 @@ import java.util.List;
 public class GroupeAdminServiceImpl extends AbstractServiceImpl<Groupe,GroupeHistory, GroupeCriteria, GroupeHistoryCriteria, GroupeDao,
 GroupeHistoryDao> implements GroupeAdminService {
 
+    @Autowired
+    private GroupeUtilisateurAdminService groupeUtilisateurService ;
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public Groupe create(Groupe t) {
@@ -83,11 +85,6 @@ GroupeHistoryDao> implements GroupeAdminService {
     public void configure() {
         super.configure(Groupe.class,GroupeHistory.class, GroupeHistoryCriteria.class, GroupeSpecification.class);
     }
-
-    @Autowired
-    private UtilisateurAdminService utilisateurService ;
-    @Autowired
-    private GroupeUtilisateurAdminService groupeUtilisateurService ;
 
     public GroupeAdminServiceImpl(GroupeDao dao, GroupeHistoryDao historyDao) {
         super(dao, historyDao);

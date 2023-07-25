@@ -17,8 +17,9 @@ public class DocumentPartageUtilisateurConverter extends AbstractConverter<Docum
 
     @Autowired
     private UtilisateurConverter utilisateurConverter ;
-    @Autowired
-    private DocumentConverter documentConverter ;
+    // TODO : this forms a cycle
+    //@Autowired
+    //private DocumentConverter documentConverter ;
     @Autowired
     private AcessShareConverter acessShareConverter ;
     private boolean document;
@@ -67,7 +68,7 @@ public class DocumentPartageUtilisateurConverter extends AbstractConverter<Docum
             if(item.getDateShare()!=null)
                 dto.setDateShare(DateUtil.dateTimeToString(item.getDateShare()));
         if(this.document && item.getDocument()!=null) {
-            dto.setDocument(documentConverter.toDto(item.getDocument())) ;
+            //dto.setDocument(documentConverter.toDto(item.getDocument())) ;
         }
         if(this.utilisateur && item.getUtilisateur()!=null) {
             dto.setUtilisateur(utilisateurConverter.toDto(item.getUtilisateur())) ;
@@ -95,11 +96,13 @@ public class DocumentPartageUtilisateurConverter extends AbstractConverter<Docum
     public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
         this.utilisateurConverter = utilisateurConverter;
     }
+    /*
     public DocumentConverter getDocumentConverter(){
         return this.documentConverter;
     }
+     */
     public void setDocumentConverter(DocumentConverter documentConverter ){
-        this.documentConverter = documentConverter;
+        //this.documentConverter = documentConverter;
     }
     public AcessShareConverter getAcessShareConverter(){
         return this.acessShareConverter;

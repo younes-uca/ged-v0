@@ -58,12 +58,6 @@ DocumentManagementGroupeHistoryDao> implements DocumentManagementGroupeAdminServ
         super.configure(DocumentManagementGroupe.class,DocumentManagementGroupeHistory.class, DocumentManagementGroupeHistoryCriteria.class, DocumentManagementGroupeSpecification.class);
     }
 
-    @Autowired
-    private DocumentAdminService documentService ;
-    @Autowired
-    private AcessManagementAdminService acessManagementService ;
-    @Autowired
-    private GroupeAdminService groupeService ;
 
     public DocumentManagementGroupeAdminServiceImpl(DocumentManagementGroupeDao dao, DocumentManagementGroupeHistoryDao historyDao) {
         super(dao, historyDao);

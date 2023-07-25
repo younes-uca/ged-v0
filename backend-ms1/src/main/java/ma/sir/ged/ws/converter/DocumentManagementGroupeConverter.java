@@ -15,8 +15,8 @@ import ma.sir.ged.ws.dto.DocumentManagementGroupeDto;
 
 @Component
 public class DocumentManagementGroupeConverter extends AbstractConverter<DocumentManagementGroupe, DocumentManagementGroupeDto, DocumentManagementGroupeHistory> {
-
-    @Autowired
+    // TODO : this forms a cycle
+    //@Autowired
     private DocumentConverter documentConverter ;
     @Autowired
     private AcessManagementConverter acessManagementConverter ;

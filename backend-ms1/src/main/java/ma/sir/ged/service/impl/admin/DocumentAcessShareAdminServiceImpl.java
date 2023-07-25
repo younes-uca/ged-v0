@@ -29,8 +29,6 @@ public class DocumentAcessShareAdminServiceImpl extends AbstractServiceImpl<Docu
 DocumentAcessShareHistoryDao> implements DocumentAcessShareAdminService {
 
 
-
-
     public List<DocumentAcessShare> findByDocumentId(Long id){
         return dao.findByDocumentId(id);
     }
@@ -51,10 +49,6 @@ DocumentAcessShareHistoryDao> implements DocumentAcessShareAdminService {
         super.configure(DocumentAcessShare.class,DocumentAcessShareHistory.class, DocumentAcessShareHistoryCriteria.class, DocumentAcessShareSpecification.class);
     }
 
-    @Autowired
-    private DocumentAdminService documentService ;
-    @Autowired
-    private AcessShareAdminService acessShareService ;
 
     public DocumentAcessShareAdminServiceImpl(DocumentAcessShareDao dao, DocumentAcessShareHistoryDao historyDao) {
         super(dao, historyDao);

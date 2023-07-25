@@ -58,13 +58,6 @@ DocumentPartageUtilisateurHistoryDao> implements DocumentPartageUtilisateurAdmin
         super.configure(DocumentPartageUtilisateur.class,DocumentPartageUtilisateurHistory.class, DocumentPartageUtilisateurHistoryCriteria.class, DocumentPartageUtilisateurSpecification.class);
     }
 
-    @Autowired
-    private UtilisateurAdminService utilisateurService ;
-    @Autowired
-    private DocumentAdminService documentService ;
-    @Autowired
-    private AcessShareAdminService acessShareService ;
-
     public DocumentPartageUtilisateurAdminServiceImpl(DocumentPartageUtilisateurDao dao, DocumentPartageUtilisateurHistoryDao historyDao) {
         super(dao, historyDao);
     }

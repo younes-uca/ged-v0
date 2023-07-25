@@ -51,11 +51,6 @@ DocumentTagHistoryDao> implements DocumentTagAdminService {
         super.configure(DocumentTag.class,DocumentTagHistory.class, DocumentTagHistoryCriteria.class, DocumentTagSpecification.class);
     }
 
-    @Autowired
-    private DocumentAdminService documentService ;
-    @Autowired
-    private TagAdminService tagService ;
-
     public DocumentTagAdminServiceImpl(DocumentTagDao dao, DocumentTagHistoryDao historyDao) {
         super(dao, historyDao);
     }

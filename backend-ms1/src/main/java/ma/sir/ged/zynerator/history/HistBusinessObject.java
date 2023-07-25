@@ -2,7 +2,7 @@ package ma.sir.ged.zynerator.history;
 
 import ma.sir.ged.zynerator.bean.BusinessObject;
 
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 /**

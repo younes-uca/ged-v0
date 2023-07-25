@@ -43,8 +43,6 @@ public class GedApplication {
     RestTemplate restTemplate(){
         return new RestTemplate();
     }
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @Bean
     ObjectMapper objectMapper(){

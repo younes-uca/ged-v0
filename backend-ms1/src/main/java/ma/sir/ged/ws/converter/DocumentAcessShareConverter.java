@@ -15,7 +15,7 @@ import ma.sir.ged.ws.dto.DocumentAcessShareDto;
 @Component
 public class DocumentAcessShareConverter extends AbstractConverter<DocumentAcessShare, DocumentAcessShareDto, DocumentAcessShareHistory> {
 
-    @Autowired
+    //@Autowired
     private DocumentConverter documentConverter ;
     @Autowired
     private AcessShareConverter acessShareConverter ;

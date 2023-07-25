@@ -9,7 +9,7 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ma.sir.ged.zynerator.audit.AuditBusinessObject;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Objects;
 
 

@@ -15,7 +15,7 @@ import ma.sir.ged.ws.dto.DocumentTagDto;
 @Component
 public class DocumentTagConverter extends AbstractConverter<DocumentTag, DocumentTagDto, DocumentTagHistory> {
 
-    @Autowired
+    //@Autowired
     private DocumentConverter documentConverter ;
     @Autowired
     private TagConverter tagConverter ;

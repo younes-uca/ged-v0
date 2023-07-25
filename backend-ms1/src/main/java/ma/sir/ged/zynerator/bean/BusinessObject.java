@@ -1,6 +1,6 @@
 package ma.sir.ged.zynerator.bean;
 
-import javax.persistence.Transient;
+import jakarta.persistence.Transient;
 import java.io.Serializable;
 
 

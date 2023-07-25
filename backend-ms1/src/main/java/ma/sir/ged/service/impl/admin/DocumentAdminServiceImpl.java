@@ -43,6 +43,18 @@ import java.util.List;
 public class DocumentAdminServiceImpl extends AbstractServiceImpl<Document,DocumentHistory, DocumentCriteria, DocumentHistoryCriteria, DocumentDao,
 DocumentHistoryDao> implements DocumentAdminService {
 
+    @Autowired
+    private DocumentPartageGroupeAdminService documentPartageGroupeService ;
+    @Autowired
+    private DocumentManagementUtilisateurAdminService documentManagementUtilisateurService ;
+    @Autowired
+    private DocumentAcessShareAdminService documentAcessShareService ;
+    @Autowired
+    private DocumentPartageUtilisateurAdminService documentPartageUtilisateurService ;
+    @Autowired
+    private DocumentManagementGroupeAdminService documentManagementGroupeService ;
+    @Autowired
+    private DocumentTagAdminService documentTagService ;
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public Document create(Document t) {
@@ -167,25 +179,6 @@ DocumentHistoryDao> implements DocumentAdminService {
     public void configure() {
         super.configure(Document.class,DocumentHistory.class, DocumentHistoryCriteria.class, DocumentSpecification.class);
     }
-
-    @Autowired
-    private UtilisateurAdminService utilisateurService ;
-    @Autowired
-    private DocumentPartageGroupeAdminService documentPartageGroupeService ;
-    @Autowired
-    private DocumentManagementUtilisateurAdminService documentManagementUtilisateurService ;
-    @Autowired
-    private DocumentAcessShareAdminService documentAcessShareService ;
-    @Autowired
-    private DocumentPartageUtilisateurAdminService documentPartageUtilisateurService ;
-    @Autowired
-    private DocumentManagementGroupeAdminService documentManagementGroupeService ;
-    @Autowired
-    private DocumentTagAdminService documentTagService ;
-    @Autowired
-    private DocumentTypeAdminService documentTypeService ;
-    @Autowired
-    private EntiteAdministrativeAdminService entiteAdministrativeService ;
 
     public DocumentAdminServiceImpl(DocumentDao dao, DocumentHistoryDao historyDao) {
         super(dao, historyDao);

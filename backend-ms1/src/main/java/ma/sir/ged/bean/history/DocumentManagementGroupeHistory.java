@@ -2,7 +2,7 @@ package ma.sir.ged.bean.history;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ma.sir.ged.zynerator.history.HistBusinessObject;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 @Entity
