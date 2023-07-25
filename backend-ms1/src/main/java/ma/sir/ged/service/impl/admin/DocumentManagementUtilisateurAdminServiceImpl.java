@@ -29,9 +29,6 @@ import java.util.List;
 public class DocumentManagementUtilisateurAdminServiceImpl extends AbstractServiceImpl<DocumentManagementUtilisateur,DocumentManagementUtilisateurHistory, DocumentManagementUtilisateurCriteria, DocumentManagementUtilisateurHistoryCriteria, DocumentManagementUtilisateurDao,
 DocumentManagementUtilisateurHistoryDao> implements DocumentManagementUtilisateurAdminService {
 
-
-
-
     public List<DocumentManagementUtilisateur> findByDocumentId(Long id){
         return dao.findByDocumentId(id);
     }
@@ -51,19 +48,9 @@ DocumentManagementUtilisateurHistoryDao> implements DocumentManagementUtilisateu
         return dao.deleteByAcessManagementId(id);
     }
 
-
-
-
     public void configure() {
         super.configure(DocumentManagementUtilisateur.class,DocumentManagementUtilisateurHistory.class, DocumentManagementUtilisateurHistoryCriteria.class, DocumentManagementUtilisateurSpecification.class);
     }
-
-    @Autowired
-    private UtilisateurAdminService utilisateurService ;
-    @Autowired
-    private DocumentAdminService documentService ;
-    @Autowired
-    private AcessManagementAdminService acessManagementService ;
 
     public DocumentManagementUtilisateurAdminServiceImpl(DocumentManagementUtilisateurDao dao, DocumentManagementUtilisateurHistoryDao historyDao) {
         super(dao, historyDao);

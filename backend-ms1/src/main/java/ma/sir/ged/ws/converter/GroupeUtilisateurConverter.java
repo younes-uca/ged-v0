@@ -17,8 +17,9 @@ public class GroupeUtilisateurConverter extends AbstractConverter<GroupeUtilisat
 
     @Autowired
     private UtilisateurConverter utilisateurConverter ;
-    @Autowired
-    private GroupeConverter groupeConverter ;
+    // TODO : this forms a cycle
+    //@Autowired
+    //private GroupeConverter groupeConverter ;
     private boolean groupe;
     private boolean utilisateur;
 
@@ -57,7 +58,7 @@ public class GroupeUtilisateurConverter extends AbstractConverter<GroupeUtilisat
             if(StringUtil.isNotEmpty(item.getId()))
                 dto.setId(item.getId());
         if(this.groupe && item.getGroupe()!=null) {
-            dto.setGroupe(groupeConverter.toDto(item.getGroupe())) ;
+            //dto.setGroupe(groupeConverter.toDto(item.getGroupe())) ;
         }
         if(this.utilisateur && item.getUtilisateur()!=null) {
             dto.setUtilisateur(utilisateurConverter.toDto(item.getUtilisateur())) ;
@@ -81,11 +82,14 @@ public class GroupeUtilisateurConverter extends AbstractConverter<GroupeUtilisat
     public void setUtilisateurConverter(UtilisateurConverter utilisateurConverter ){
         this.utilisateurConverter = utilisateurConverter;
     }
+    /*
     public GroupeConverter getGroupeConverter(){
+
         return this.groupeConverter;
     }
+    */
     public void setGroupeConverter(GroupeConverter groupeConverter ){
-        this.groupeConverter = groupeConverter;
+       // this.groupeConverter = groupeConverter;
     }
     public boolean  isGroupe(){
         return this.groupe;

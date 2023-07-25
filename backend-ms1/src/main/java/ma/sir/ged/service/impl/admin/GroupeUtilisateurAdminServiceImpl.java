@@ -29,8 +29,6 @@ public class GroupeUtilisateurAdminServiceImpl extends AbstractServiceImpl<Group
 GroupeUtilisateurHistoryDao> implements GroupeUtilisateurAdminService {
 
 
-
-
     public List<GroupeUtilisateur> findByGroupeId(Long id){
         return dao.findByGroupeId(id);
     }
@@ -50,11 +48,6 @@ GroupeUtilisateurHistoryDao> implements GroupeUtilisateurAdminService {
     public void configure() {
         super.configure(GroupeUtilisateur.class,GroupeUtilisateurHistory.class, GroupeUtilisateurHistoryCriteria.class, GroupeUtilisateurSpecification.class);
     }
-
-    @Autowired
-    private UtilisateurAdminService utilisateurService ;
-    @Autowired
-    private GroupeAdminService groupeService ;
 
     public GroupeUtilisateurAdminServiceImpl(GroupeUtilisateurDao dao, GroupeUtilisateurHistoryDao historyDao) {
         super(dao, historyDao);

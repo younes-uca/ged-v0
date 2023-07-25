@@ -4,8 +4,8 @@ import ma.sir.ged.zynerator.security.bean.User;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 

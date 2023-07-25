@@ -13,11 +13,11 @@ import ma.sir.ged.bean.history.DocumentPartageGroupeHistory;
 import ma.sir.ged.bean.core.DocumentPartageGroupe;
 import ma.sir.ged.ws.dto.DocumentPartageGroupeDto;
 
-@Component
+@Component()
 public class DocumentPartageGroupeConverter extends AbstractConverter<DocumentPartageGroupe, DocumentPartageGroupeDto, DocumentPartageGroupeHistory> {
-
-    @Autowired
-    private DocumentConverter documentConverter ;
+    // TODO : this form a cycle
+    //@Autowired
+    //private DocumentConverter documentConverter ;
     @Autowired
     private AcessShareConverter acessShareConverter ;
     @Autowired
@@ -70,7 +70,7 @@ public class DocumentPartageGroupeConverter extends AbstractConverter<DocumentPa
             if(item.getDateShare()!=null)
                 dto.setDateShare(DateUtil.dateTimeToString(item.getDateShare()));
         if(this.document && item.getDocument()!=null) {
-            dto.setDocument(documentConverter.toDto(item.getDocument())) ;
+            //dto.setDocument(documentConverter.toDto(item.getDocument())) ;
         }
         if(this.groupe && item.getGroupe()!=null) {
             dto.setGroupe(groupeConverter.toDto(item.getGroupe())) ;
@@ -92,11 +92,13 @@ public class DocumentPartageGroupeConverter extends AbstractConverter<DocumentPa
     }
 
 
+    /*
     public DocumentConverter getDocumentConverter(){
         return this.documentConverter;
     }
+    */
     public void setDocumentConverter(DocumentConverter documentConverter ){
-        this.documentConverter = documentConverter;
+        //this.documentConverter = documentConverter;
     }
     public AcessShareConverter getAcessShareConverter(){
         return this.acessShareConverter;

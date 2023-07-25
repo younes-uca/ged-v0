@@ -17,7 +17,7 @@ public class DocumentManagementUtilisateurConverter extends AbstractConverter<Do
 
     @Autowired
     private UtilisateurConverter utilisateurConverter ;
-    @Autowired
+    //@Autowired
     private DocumentConverter documentConverter ;
     @Autowired
     private AcessManagementConverter acessManagementConverter ;

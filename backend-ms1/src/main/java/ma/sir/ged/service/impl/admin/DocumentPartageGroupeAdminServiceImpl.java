@@ -30,8 +30,6 @@ public class DocumentPartageGroupeAdminServiceImpl extends AbstractServiceImpl<D
 DocumentPartageGroupeHistoryDao> implements DocumentPartageGroupeAdminService {
 
 
-
-
     public List<DocumentPartageGroupe> findByDocumentId(Long id){
         return dao.findByDocumentId(id);
     }
@@ -57,13 +55,6 @@ DocumentPartageGroupeHistoryDao> implements DocumentPartageGroupeAdminService {
     public void configure() {
         super.configure(DocumentPartageGroupe.class,DocumentPartageGroupeHistory.class, DocumentPartageGroupeHistoryCriteria.class, DocumentPartageGroupeSpecification.class);
     }
-
-    @Autowired
-    private DocumentAdminService documentService ;
-    @Autowired
-    private AcessShareAdminService acessShareService ;
-    @Autowired
-    private GroupeAdminService groupeService ;
 
     public DocumentPartageGroupeAdminServiceImpl(DocumentPartageGroupeDao dao, DocumentPartageGroupeHistoryDao historyDao) {
         super(dao, historyDao);
