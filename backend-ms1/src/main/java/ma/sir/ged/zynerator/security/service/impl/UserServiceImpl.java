@@ -25,7 +25,7 @@ import ma.sir.ged.zynerator.security.service.facade.RoleService;
 import ma.sir.ged.zynerator.security.service.facade.UserService;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 
 
     @Autowired
