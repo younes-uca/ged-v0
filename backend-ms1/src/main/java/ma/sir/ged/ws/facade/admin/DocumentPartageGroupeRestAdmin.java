@@ -1,8 +1,8 @@
 package  ma.sir.ged.ws.facade.admin;
 
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import ma.sir.ged.bean.core.DocumentPartageGroupe;
 import ma.sir.ged.bean.history.DocumentPartageGroupeHistory;
 import ma.sir.ged.dao.criteria.core.DocumentPartageGroupeCriteria;
@@ -25,144 +25,144 @@ import ma.sir.ged.zynerator.process.Result;
 import org.springframework.web.multipart.MultipartFile;
 import ma.sir.ged.zynerator.dto.FileTempDto;
 
-@Api("Manages documentPartageGroupe services")
+@Tag(name = "Manages documentPartageGroupe services")
 @RestController
 @RequestMapping("/api/admin/documentPartageGroupe/")
 public class DocumentPartageGroupeRestAdmin  extends AbstractController<DocumentPartageGroupe, DocumentPartageGroupeDto, DocumentPartageGroupeHistory, DocumentPartageGroupeCriteria, DocumentPartageGroupeHistoryCriteria, DocumentPartageGroupeAdminService, DocumentPartageGroupeConverter> {
 
 
 
-    @ApiOperation("upload one documentPartageGroupe")
+    @Operation(summary = "upload one documentPartageGroupe")
     @RequestMapping(value = "upload", method = RequestMethod.POST, consumes = "multipart/form-data")
     public ResponseEntity<FileTempDto> uploadFileAndGetChecksum(@RequestBody MultipartFile file) throws Exception {
         return super.uploadFileAndGetChecksum(file);
     }
-    @ApiOperation("upload multiple documentPartageGroupes")
+    @Operation(summary = "upload multiple documentPartageGroupes")
     @RequestMapping(value = "upload-multiple", method = RequestMethod.POST, consumes = "multipart/form-data")
     public ResponseEntity<List<FileTempDto>> uploadMultipleFileAndGetChecksum(@RequestBody MultipartFile[] files) throws Exception {
         return super.uploadMultipleFileAndGetChecksum(files);
     }
 
-    @ApiOperation("Finds a list of all documentPartageGroupes")
+    @Operation(summary = "Finds a list of all documentPartageGroupes")
     @GetMapping("")
     public ResponseEntity<List<DocumentPartageGroupeDto>> findAll() throws Exception {
         return super.findAll();
     }
 
 
-    @ApiOperation("Finds a documentPartageGroupe by id")
+    @Operation(summary = "Finds a documentPartageGroupe by id")
     @GetMapping("id/{id}")
     public ResponseEntity<DocumentPartageGroupeDto> findById(@PathVariable Long id, String[] includes, String[] excludes) throws Exception {
         return super.findById(id, includes, excludes);
     }
-    @ApiOperation("Saves the specified  documentPartageGroupe")
+    @Operation(summary = "Saves the specified  documentPartageGroupe")
     @PostMapping("")
     public ResponseEntity<DocumentPartageGroupeDto> save(@RequestBody DocumentPartageGroupeDto dto) throws Exception {
         return super.save(dto);
     }
 
-    @ApiOperation("Updates the specified  documentPartageGroupe")
+    @Operation(summary = "Updates the specified  documentPartageGroupe")
     @PutMapping("")
     public ResponseEntity<DocumentPartageGroupeDto> update(@RequestBody DocumentPartageGroupeDto dto) throws Exception {
         return super.update(dto);
     }
 
-    @ApiOperation("Delete list of documentPartageGroupe")
+    @Operation(summary = "Delete list of documentPartageGroupe")
     @PostMapping("multiple")
     public ResponseEntity<List<DocumentPartageGroupeDto>> delete(@RequestBody List<DocumentPartageGroupeDto> listToDelete) throws Exception {
         return super.delete(listToDelete);
     }
-    @ApiOperation("Delete the specified documentPartageGroupe")
+    @Operation(summary = "Delete the specified documentPartageGroupe")
     @DeleteMapping("")
     public ResponseEntity<DocumentPartageGroupeDto> delete(@RequestBody DocumentPartageGroupeDto dto) throws Exception {
             return super.delete(dto);
     }
 
-    @ApiOperation("Delete the specified documentPartageGroupe")
+    @Operation(summary = "Delete the specified documentPartageGroupe")
     @DeleteMapping("id/{id}")
     public ResponseEntity<Long> deleteById(@PathVariable Long id) throws Exception {
         return super.deleteById(id);
     }
-    @ApiOperation("Delete multiple documentPartageGroupes by ids")
+    @Operation(summary = "Delete multiple documentPartageGroupes by ids")
     @DeleteMapping("multiple/id")
     public ResponseEntity<List<Long>> deleteByIdIn(@RequestBody List<Long> ids) throws Exception {
             return super.deleteByIdIn(ids);
      }
 
 
-    @ApiOperation("find by document id")
+    @Operation(summary = "find by document id")
     @GetMapping("document/id/{id}")
     public List<DocumentPartageGroupe> findByDocumentId(@PathVariable Long id){
         return service.findByDocumentId(id);
     }
-    @ApiOperation("delete by document id")
+    @Operation(summary = "delete by document id")
     @DeleteMapping("document/id/{id}")
     public int deleteByDocumentId(@PathVariable Long id){
         return service.deleteByDocumentId(id);
     }
-    @ApiOperation("find by groupe id")
+    @Operation(summary = "find by groupe id")
     @GetMapping("groupe/id/{id}")
     public List<DocumentPartageGroupe> findByGroupeId(@PathVariable Long id){
         return service.findByGroupeId(id);
     }
-    @ApiOperation("delete by groupe id")
+    @Operation(summary = "delete by groupe id")
     @DeleteMapping("groupe/id/{id}")
     public int deleteByGroupeId(@PathVariable Long id){
         return service.deleteByGroupeId(id);
     }
-    @ApiOperation("find by acessShare id")
+    @Operation(summary = "find by acessShare id")
     @GetMapping("acessShare/id/{id}")
     public List<DocumentPartageGroupe> findByAcessShareId(@PathVariable Long id){
         return service.findByAcessShareId(id);
     }
-    @ApiOperation("delete by acessShare id")
+    @Operation(summary = "delete by acessShare id")
     @DeleteMapping("acessShare/id/{id}")
     public int deleteByAcessShareId(@PathVariable Long id){
         return service.deleteByAcessShareId(id);
     }
-    @ApiOperation("Finds documentPartageGroupes by criteria")
+    @Operation(summary = "Finds documentPartageGroupes by criteria")
     @PostMapping("find-by-criteria")
     public ResponseEntity<List<DocumentPartageGroupeDto>> findByCriteria(@RequestBody DocumentPartageGroupeCriteria criteria) throws Exception {
         return super.findByCriteria(criteria);
     }
 
-    @ApiOperation("Finds paginated documentPartageGroupes by criteria")
+    @Operation(summary = "Finds paginated documentPartageGroupes by criteria")
     @PostMapping("find-paginated-by-criteria")
     public ResponseEntity<PaginatedList> findPaginatedByCriteria(@RequestBody DocumentPartageGroupeCriteria criteria) throws Exception {
         return super.findPaginatedByCriteria(criteria);
     }
 
-    @ApiOperation("Exports documentPartageGroupes by criteria")
+    @Operation(summary = "Exports documentPartageGroupes by criteria")
     @PostMapping("export")
     public ResponseEntity<InputStreamResource> export(@RequestBody DocumentPartageGroupeCriteria criteria) throws Exception {
         return super.export(criteria);
     }
 
-    @ApiOperation("Gets documentPartageGroupe data size by criteria")
+    @Operation(summary = "Gets documentPartageGroupe data size by criteria")
     @PostMapping("data-size-by-criteria")
     public ResponseEntity<Integer> getDataSize(@RequestBody DocumentPartageGroupeCriteria criteria) throws Exception {
         return super.getDataSize(criteria);
     }
 
-    @ApiOperation("Gets documentPartageGroupe history by id")
+    @Operation(summary = "Gets documentPartageGroupe history by id")
     @GetMapping("history/id/{id}")
     public ResponseEntity<AuditEntityDto> findHistoryById(@PathVariable("id") Long id) throws Exception {
         return super.findHistoryById(id);
     }
 
-    @ApiOperation("Gets documentPartageGroupe paginated history by criteria")
+    @Operation(summary = "Gets documentPartageGroupe paginated history by criteria")
     @PostMapping("history-paginated-by-criteria")
     public ResponseEntity<PaginatedList> findHistoryPaginatedByCriteria(@RequestBody DocumentPartageGroupeHistoryCriteria criteria) throws Exception {
         return super.findHistoryPaginatedByCriteria(criteria);
     }
 
-    @ApiOperation("Exports documentPartageGroupe history by criteria")
+    @Operation(summary = "Exports documentPartageGroupe history by criteria")
     @PostMapping("export-history")
     public ResponseEntity<InputStreamResource> exportHistory(@RequestBody DocumentPartageGroupeHistoryCriteria criteria) throws Exception {
         return super.exportHistory(criteria);
     }
 
-    @ApiOperation("Gets documentPartageGroupe history data size by criteria")
+    @Operation(summary = "Gets documentPartageGroupe history data size by criteria")
     @PostMapping("history-data-size")
     public ResponseEntity<Integer> getHistoryDataSize(@RequestBody DocumentPartageGroupeHistoryCriteria criteria) throws Exception {
         return super.getHistoryDataSize(criteria);

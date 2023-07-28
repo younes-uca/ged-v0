@@ -1,8 +1,8 @@
 package  ma.sir.ged.ws.facade.admin;
 
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import ma.sir.ged.bean.core.Groupe;
 import ma.sir.ged.bean.history.GroupeHistory;
 import ma.sir.ged.dao.criteria.core.GroupeCriteria;
@@ -25,135 +25,135 @@ import ma.sir.ged.zynerator.process.Result;
 import org.springframework.web.multipart.MultipartFile;
 import ma.sir.ged.zynerator.dto.FileTempDto;
 
-@Api("Manages groupe services")
+@Tag(name = "Manages groupe services")
 @RestController
 @RequestMapping("/api/admin/groupe/")
 public class GroupeRestAdmin  extends AbstractController<Groupe, GroupeDto, GroupeHistory, GroupeCriteria, GroupeHistoryCriteria, GroupeAdminService, GroupeConverter> {
 
 
 
-    @ApiOperation("upload one groupe")
+    @Operation(summary = "upload one groupe")
     @RequestMapping(value = "upload", method = RequestMethod.POST, consumes = "multipart/form-data")
     public ResponseEntity<FileTempDto> uploadFileAndGetChecksum(@RequestBody MultipartFile file) throws Exception {
         return super.uploadFileAndGetChecksum(file);
     }
-    @ApiOperation("upload multiple groupes")
+    @Operation(summary = "upload multiple groupes")
     @RequestMapping(value = "upload-multiple", method = RequestMethod.POST, consumes = "multipart/form-data")
     public ResponseEntity<List<FileTempDto>> uploadMultipleFileAndGetChecksum(@RequestBody MultipartFile[] files) throws Exception {
         return super.uploadMultipleFileAndGetChecksum(files);
     }
 
-    @ApiOperation("Finds a list of all groupes")
+    @Operation(summary = "Finds a list of all groupes")
     @GetMapping("")
     public ResponseEntity<List<GroupeDto>> findAll() throws Exception {
         return super.findAll();
     }
 
-    @ApiOperation("Finds an optimized list of all groupes")
+    @Operation(summary = "Finds an optimized list of all groupes")
     @GetMapping("optimized")
     public ResponseEntity<List<GroupeDto>> findAllOptimized() throws Exception {
         return super.findAllOptimized();
     }
 
-    @ApiOperation("Finds a groupe by id")
+    @Operation(summary = "Finds a groupe by id")
     @GetMapping("id/{id}")
     public ResponseEntity<GroupeDto> findById(@PathVariable Long id, String[] includes, String[] excludes) throws Exception {
         return super.findById(id, includes, excludes);
     }
-    @ApiOperation("Saves the specified  groupe")
+    @Operation(summary = "Saves the specified  groupe")
     @PostMapping("")
     public ResponseEntity<GroupeDto> save(@RequestBody GroupeDto dto) throws Exception {
         return super.save(dto);
     }
 
-    @ApiOperation("Updates the specified  groupe")
+    @Operation(summary = "Updates the specified  groupe")
     @PutMapping("")
     public ResponseEntity<GroupeDto> update(@RequestBody GroupeDto dto) throws Exception {
         return super.update(dto);
     }
 
-    @ApiOperation("Delete list of groupe")
+    @Operation(summary = "Delete list of groupe")
     @PostMapping("multiple")
     public ResponseEntity<List<GroupeDto>> delete(@RequestBody List<GroupeDto> listToDelete) throws Exception {
         return super.delete(listToDelete);
     }
-    @ApiOperation("Delete the specified groupe")
+    @Operation(summary = "Delete the specified groupe")
     @DeleteMapping("")
     public ResponseEntity<GroupeDto> delete(@RequestBody GroupeDto dto) throws Exception {
             return super.delete(dto);
     }
 
-    @ApiOperation("Delete the specified groupe")
+    @Operation(summary = "Delete the specified groupe")
     @DeleteMapping("id/{id}")
     public ResponseEntity<Long> deleteById(@PathVariable Long id) throws Exception {
         return super.deleteById(id);
     }
-    @ApiOperation("Delete multiple groupes by ids")
+    @Operation(summary = "Delete multiple groupes by ids")
     @DeleteMapping("multiple/id")
     public ResponseEntity<List<Long>> deleteByIdIn(@RequestBody List<Long> ids) throws Exception {
             return super.deleteByIdIn(ids);
      }
 
 
-    @ApiOperation("find by utilisateur id")
+    @Operation(summary = "find by utilisateur id")
     @GetMapping("utilisateur/id/{id}")
     public List<Groupe> findByUtilisateurId(@PathVariable Long id){
         return service.findByUtilisateurId(id);
     }
-    @ApiOperation("delete by utilisateur id")
+    @Operation(summary = "delete by utilisateur id")
     @DeleteMapping("utilisateur/id/{id}")
     public int deleteByUtilisateurId(@PathVariable Long id){
         return service.deleteByUtilisateurId(id);
     }
-    @ApiOperation("Finds a groupe and associated list by id")
+    @Operation(summary = "Finds a groupe and associated list by id")
     @GetMapping("detail/id/{id}")
     public ResponseEntity<GroupeDto> findWithAssociatedLists(@PathVariable Long id) {
         return super.findWithAssociatedLists(id);
     }
 
-    @ApiOperation("Finds groupes by criteria")
+    @Operation(summary = "Finds groupes by criteria")
     @PostMapping("find-by-criteria")
     public ResponseEntity<List<GroupeDto>> findByCriteria(@RequestBody GroupeCriteria criteria) throws Exception {
         return super.findByCriteria(criteria);
     }
 
-    @ApiOperation("Finds paginated groupes by criteria")
+    @Operation(summary = "Finds paginated groupes by criteria")
     @PostMapping("find-paginated-by-criteria")
     public ResponseEntity<PaginatedList> findPaginatedByCriteria(@RequestBody GroupeCriteria criteria) throws Exception {
         return super.findPaginatedByCriteria(criteria);
     }
 
-    @ApiOperation("Exports groupes by criteria")
+    @Operation(summary = "Exports groupes by criteria")
     @PostMapping("export")
     public ResponseEntity<InputStreamResource> export(@RequestBody GroupeCriteria criteria) throws Exception {
         return super.export(criteria);
     }
 
-    @ApiOperation("Gets groupe data size by criteria")
+    @Operation(summary = "Gets groupe data size by criteria")
     @PostMapping("data-size-by-criteria")
     public ResponseEntity<Integer> getDataSize(@RequestBody GroupeCriteria criteria) throws Exception {
         return super.getDataSize(criteria);
     }
 
-    @ApiOperation("Gets groupe history by id")
+    @Operation(summary = "Gets groupe history by id")
     @GetMapping("history/id/{id}")
     public ResponseEntity<AuditEntityDto> findHistoryById(@PathVariable("id") Long id) throws Exception {
         return super.findHistoryById(id);
     }
 
-    @ApiOperation("Gets groupe paginated history by criteria")
+    @Operation(summary = "Gets groupe paginated history by criteria")
     @PostMapping("history-paginated-by-criteria")
     public ResponseEntity<PaginatedList> findHistoryPaginatedByCriteria(@RequestBody GroupeHistoryCriteria criteria) throws Exception {
         return super.findHistoryPaginatedByCriteria(criteria);
     }
 
-    @ApiOperation("Exports groupe history by criteria")
+    @Operation(summary = "Exports groupe history by criteria")
     @PostMapping("export-history")
     public ResponseEntity<InputStreamResource> exportHistory(@RequestBody GroupeHistoryCriteria criteria) throws Exception {
         return super.exportHistory(criteria);
     }
 
-    @ApiOperation("Gets groupe history data size by criteria")
+    @Operation(summary = "Gets groupe history data size by criteria")
     @PostMapping("history-data-size")
     public ResponseEntity<Integer> getHistoryDataSize(@RequestBody GroupeHistoryCriteria criteria) throws Exception {
         return super.getHistoryDataSize(criteria);
